@@ -1,0 +1,45 @@
+﻿@model IEnumerable<OneUp.Models.Adocao>
+
+@{
+    ViewBag.Title = "Adoção";
+}
+
+<h2>Adoção</h2>
+
+<p>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Animal.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataAdocao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Animal.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAdocao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.AdocaoID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.AdocaoID }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.AdocaoID })
+        </td>
+    </tr>
+}
+
+</table>
